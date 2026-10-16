@@ -1,0 +1,192 @@
+{
+  "purpose": "Held-out test evaluation; no test-driven tuning",
+  "created_utc": "2026-10-10T08:45:57.923278+00:00",
+  "dataset_root": "D:\\Koushik\\msbin_gpu_experiments_v3\\MSBin\\MSBin",
+  "test_keys_sha256": "299b35fb40236308bcf587669ef981dc90b7fea5e87b280e6d4ce57476034e21",
+  "test_pages": [
+    "BT11",
+    "BT15",
+    "BT17",
+    "BT18",
+    "BT26",
+    "BT28",
+    "BT43",
+    "BT44",
+    "BT45",
+    "BT46",
+    "BT47",
+    "BT48",
+    "BT49",
+    "BT5",
+    "BT50",
+    "BT51",
+    "BT52",
+    "BT53",
+    "BT54",
+    "BT55",
+    "BT56",
+    "BT57",
+    "BT58",
+    "BT59",
+    "BT60",
+    "EA0",
+    "EA1",
+    "EA14",
+    "EA16",
+    "EA2",
+    "EA28",
+    "EA47",
+    "EA51",
+    "EA53",
+    "EA55",
+    "EA56",
+    "EA57",
+    "EA58",
+    "EA59",
+    "EA60",
+    "EA61",
+    "EA62",
+    "EA63",
+    "EA64",
+    "EA65",
+    "EA66",
+    "EA67",
+    "EA68",
+    "EA8",
+    "EA9"
+  ],
+  "threshold": 0.5,
+  "tile": 256,
+  "stride": 256,
+  "foreground": "FG1 main text",
+  "uncertain_regions": "Excluded from pixel metrics",
+  "device": "cuda",
+  "python_version": "3.12.7",
+  "software_versions": {
+    "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 13:17:27) [MSC v.1929 64 bit (AMD64)]",
+    "torch": "2.11.0+cu130",
+    "torchvision": "0.26.0+cu130",
+    "numpy": "2.5.2",
+    "opencv-python": "5.0.0.93"
+  },
+  "evaluator_sha256": "4ff75dc0ef0bf408721d2ffc7952a0bd2b6407b5704cb9092ed3c87303f81d77",
+  "models": {
+    "baseline": {
+      "checkpoint": {
+        "path": "D:\\Koushik\\msbin_gpu_experiments_v3\\baseline_seed42\\best.pt",
+        "bytes": 535666145,
+        "sha256": "b16499f39f6cdf3713a5c95298d1f51abcc6753920fed443d4b4c6864ef8f99f"
+      },
+      "model_config": {
+        "architecture": "resnet50_unet_v1",
+        "in_ch": 12,
+        "band_reweight": false,
+        "band_drop_p": 0.0,
+        "freeze_encoder": false,
+        "pretrained": true
+      },
+      "completed_epoch": 8,
+      "pooled_pixel_scores": {
+        "tp": 14950879,
+        "fp": 3480899,
+        "fn": 850614,
+        "precision": 0.8111468681968718,
+        "recall": 0.9461687575977789,
+        "f1": 0.8734706654237043
+      },
+      "unweighted_page_mean_scores": {
+        "precision": 0.7932653351438067,
+        "recall": 0.9118639706688139,
+        "f1": 0.845165873936844
+      }
+    },
+    "reweight_only": {
+      "checkpoint": {
+        "path": "D:\\Koushik\\msbin_gpu_experiments_v3\\reweight_only_seed42\\best.pt",
+        "bytes": 535673217,
+        "sha256": "1e3f239cb16683d4904242880a25723cccfa889c2acdf8e970fc8102a9c6203e"
+      },
+      "model_config": {
+        "architecture": "resnet50_unet_v1",
+        "in_ch": 12,
+        "band_reweight": true,
+        "band_drop_p": 0.0,
+        "freeze_encoder": false,
+        "pretrained": true
+      },
+      "completed_epoch": 10,
+      "pooled_pixel_scores": {
+        "tp": 14856845,
+        "fp": 2985665,
+        "fn": 944648,
+        "precision": 0.8326656395316578,
+        "recall": 0.9402178009381772,
+        "f1": 0.8831793886119913
+      },
+      "unweighted_page_mean_scores": {
+        "precision": 0.8216536016604092,
+        "recall": 0.9115517531756927,
+        "f1": 0.8614479331456915
+      }
+    },
+    "drop_only": {
+      "checkpoint": {
+        "path": "D:\\Koushik\\msbin_gpu_experiments_v3\\drop_only_seed42\\best.pt",
+        "bytes": 535666273,
+        "sha256": "a604a8c5d37c1c2ae5a33a442ccce41cf1a41b5f6d11f85ad438387b902dff7c"
+      },
+      "model_config": {
+        "architecture": "resnet50_unet_v1",
+        "in_ch": 12,
+        "band_reweight": false,
+        "band_drop_p": 0.2,
+        "freeze_encoder": false,
+        "pretrained": true
+      },
+      "completed_epoch": 9,
+      "pooled_pixel_scores": {
+        "tp": 14771288,
+        "fp": 3147781,
+        "fn": 1030205,
+        "precision": 0.8243334516988577,
+        "recall": 0.9348033125730587,
+        "f1": 0.8760997518368763
+      },
+      "unweighted_page_mean_scores": {
+        "precision": 0.8018020991418604,
+        "recall": 0.8989512295184825,
+        "f1": 0.8416985650867992
+      }
+    },
+    "reweight_and_drop": {
+      "checkpoint": {
+        "path": "D:\\Koushik\\msbin_gpu_experiments_v3\\reweight_and_drop_seed42\\best.pt",
+        "bytes": 535672961,
+        "sha256": "266ca9328d2bed67a5c8ffec46c09029d52427ebdf586d2b116d0bdcff73f7a2"
+      },
+      "model_config": {
+        "architecture": "resnet50_unet_v1",
+        "in_ch": 12,
+        "band_reweight": true,
+        "band_drop_p": 0.2,
+        "freeze_encoder": false,
+        "pretrained": true
+      },
+      "completed_epoch": 9,
+      "pooled_pixel_scores": {
+        "tp": 14879424,
+        "fp": 3309411,
+        "fn": 922069,
+        "precision": 0.8180526130453105,
+        "recall": 0.9416467165476072,
+        "f1": 0.8755092919374006
+      },
+      "unweighted_page_mean_scores": {
+        "precision": 0.7946943768288502,
+        "recall": 0.9136797237670699,
+        "f1": 0.8457314247873675
+      }
+    }
+  },
+  "interpretation": "One seed per variant. Descriptive results only; no statistical significance claim."
+}

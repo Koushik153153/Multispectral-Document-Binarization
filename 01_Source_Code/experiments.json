@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "epochs": 7,
+  "seeds": [42],
+  "common": {
+    "fg_type": 1, "patch": 256, "stride": 256, "batch": 2,
+    "num_workers": 0, "cache_mb": 0, "precision": "fp32", "threads": 2,
+    "min_fg_frac": 0, "lr": 0.0003, "pos_weight": 6,
+    "bce_w": 0.9, "dice_w": 0.1, "grad_clip": 1, "val_thr": 0.5
+  },
+  "variants": {
+    "baseline": {"band_reweight": false, "band_drop_p": 0},
+    "reweight_only": {"band_reweight": true, "band_drop_p": 0},
+    "drop_only": {"band_reweight": false, "band_drop_p": 0.2},
+    "reweight_and_drop": {"band_reweight": true, "band_drop_p": 0.2}
+  }
+}

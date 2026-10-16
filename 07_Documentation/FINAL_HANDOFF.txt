@@ -1,0 +1,72 @@
+﻿MSBIN PROJECT HANDOFF
+=====================
+
+PROJECT
+Multispectral Document Binarization Using Band Reweighting and Band Dropping
+
+FINAL EVALUATION
+Four trained model variants were evaluated on the 50-page held-out test set.
+The threshold was fixed at 0.5. Uncertain (UR) pixels were excluded from
+pixel-level metrics.
+
+HELD-OUT TEST RESULTS
+Model                  Precision   Recall     Pooled F1
+Baseline               0.81115     0.94617    0.87347
+Reweight only          0.83267     0.94022    0.88318
+Drop only              0.82433     0.93480    0.87610
+Reweight + drop        0.81805     0.94165    0.87551
+
+The reweight-only model has the highest pooled test F1 in this run.
+There is one training seed per variant. These results are descriptive;
+they do not establish statistical significance.
+
+FOLDER GUIDE
+01_Source_Code
+  Python source code and tests.
+
+02_Dataset_and_Splits
+  Dataset and train, validation, and test key lists.
+  Dataset root in this package: 02_Dataset_and_Splits\MSBin\MSBin
+
+03_Trained_Models
+  best.pt and last.pt checkpoints for all four variants.
+
+04_Validation_Results
+  Full-page validation predictions and validation comparisons.
+
+05_Test_Results
+  Held-out test predictions, comparison panels, per-page CSV,
+  pooled comparison CSV, and manifest.json.
+
+06_Experiment_Logs
+  Available validation log and package manifest.
+
+07_Documentation
+  Setup instructions, README, handoff documentation, and dataset audit.
+
+08_Presentation_and_Report
+  Reserved for the final presentation and written report.
+
+IMPORTANT EXPERIMENT NOTES
+- Training: 60 pages.
+- Validation: 20 pages.
+- Held-out test: 50 pages.
+- The splits are disjoint.
+- Each page uses 12 spectral bands.
+- Foreground target: FG1 main text.
+- Threshold: 0.5.
+- Tile and stride: 256 pixels.
+- UR pixels are excluded from the metrics.
+- One seed per model variant; do not claim statistical significance.
+- Test results must not be used to tune the model or threshold.
+- Do not claim OCR, translation, or AMDES application integration
+  as completed unless that work is separately implemented and verified.
+
+REPRODUCIBILITY
+The existing checkpoints and results are the primary completed artifacts.
+To run Python commands, create a compatible Python environment and install
+the required packages using the setup documentation. CUDA compatibility
+depends on the target computer's hardware and installed drivers.
+
+The saved test results are under 05_Test_Results. Review manifest.json
+and comparison.csv before quoting results in the report.

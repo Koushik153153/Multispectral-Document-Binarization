@@ -1,0 +1,26 @@
+﻿# Dataset: exclude all downloaded MSBin data
+02_Dataset_and_Splits/MSBin/
+
+# Python cache and temporary files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated demo outputs
+demo_test/test_results/
+
+# Large trained model checkpoints
+03_Trained_Models/**/*.pt
+03_Trained_Models/**/*.pth
+
+# Temporary files
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Exclude entire dataset and split folder
+02_Dataset_and_Splits/
+
+# Exclude presentation and report folder
+08_Presentation_and_Report/
